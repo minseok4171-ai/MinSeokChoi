@@ -1,0 +1,5 @@
+{
+  "name": "동탄목동점 주간테스트 보고서 양식",
+  "description": "A tool for academies to generate weekly/monthly student performance reports with AI-assisted coaching comments, modeled after the Wawa Learning Coaching Center format.",
+  "requestFramePermissions": []
+}
