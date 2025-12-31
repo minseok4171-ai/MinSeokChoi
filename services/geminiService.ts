@@ -1,10 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
 import { ReportData } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export const generateCoachingComment = async (data: ReportData): Promise<string> => {
   try {
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const prompt = `
       You are a professional academic coach at a Korean private academy (Wawa Learning Coaching Center).
       Write a polite, encouraging, and detailed "Coaching Comment" for a parent regarding their child's weekly test and class performance.
@@ -38,7 +37,7 @@ export const generateCoachingComment = async (data: ReportData): Promise<string>
     `;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3-flash-preview',
       contents: prompt,
     });
 

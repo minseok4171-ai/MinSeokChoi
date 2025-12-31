@@ -62,7 +62,6 @@ const App: React.FC = () => {
       const pageWidth = pdf.internal.pageSize.getWidth();
       const pageHeight = pdf.internal.pageSize.getHeight();
       
-      // Calculate dimensions to fit on one page maintaining aspect ratio
       const widthRatio = pageWidth / canvas.width;
       const heightRatio = pageHeight / canvas.height;
       const ratio = Math.min(widthRatio, heightRatio);
@@ -71,7 +70,7 @@ const App: React.FC = () => {
       const canvasHeight = canvas.height * ratio;
       
       const marginX = (pageWidth - canvasWidth) / 2;
-      const marginY = 0; // Top align
+      const marginY = 0;
 
       pdf.addImage(imgData, 'PNG', marginX, marginY, canvasWidth, canvasHeight);
       
@@ -121,12 +120,9 @@ const App: React.FC = () => {
       </header>
 
       <main className="flex-grow p-4 md:p-8 flex flex-col lg:flex-row gap-8 overflow-hidden">
-        {/* Left Side: Editor */}
         <div className="w-full lg:w-1/2 xl:w-5/12 h-full no-print overflow-hidden flex flex-col">
             <ReportForm data={reportData} onChange={setReportData} />
         </div>
-
-        {/* Right Side: Preview */}
         <div className="w-full lg:w-1/2 xl:w-7/12 flex justify-center items-start overflow-y-auto bg-gray-200/50 p-4 rounded-xl border border-gray-300">
           <ReportPreview data={reportData} />
         </div>
