@@ -95,17 +95,13 @@ const ReportForm: React.FC<ReportFormProps> = ({ data, onChange }) => {
             </div>
             <div>
                 <label className="block text-sm font-medium text-gray-700">담당 코치</label>
-                <select
+                <input
+                    type="text"
+                    placeholder="예: 배서영 코치"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
                     value={data.coachName}
                     onChange={(e) => handleFieldChange('coachName', e.target.value)}
-                >
-                    <option value="">선택해주세요</option>
-                    <option value="배서영">배서영</option>
-                    <option value="최민석">최민석</option>
-                    <option value="송영섭">송영섭</option>
-                    <option value="안슬기">안슬기</option>
-                </select>
+                />
             </div>
         </div>
         
